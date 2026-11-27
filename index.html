@@ -62,7 +62,7 @@ const products=[
 const stores=[{name:'大安旗艦店',address:'台北市大安區・街角概念據點（示範）',phone:'02-XXXX-1001（示範）',hours:'每日 11:00–20:30（示範）',query:'台北市大安區'},{name:'信義概念店',address:'台北市信義區・城市概念據點（示範）',phone:'02-XXXX-1002（示範）',hours:'每日 11:30–21:00（示範）',query:'台北市信義區'}];
 const $=id=>document.getElementById(id),cart=new Map();let toastTimer;
 // 訂單後端：部署 gas/Code.gs 後，把網頁應用程式網址（https://script.google.com/macros/s/…/exec）貼在這裡。留空 = 示範模式，不會送出訂單。
-const ORDER_API='';
+const ORDER_API='https://script.google.com/macros/s/AKfycbwJKtWQlCJfgiCRZmGHBggXu7bvRecNds1sF03SdonSbZgeMCYuZkALwHkZFaXYYJyJ/exec';
 const money=n=>'NT$ '+n.toLocaleString('zh-TW'),photo=(url,w=800)=>url+'?auto=format&fit=crop&w='+w+'&q=85';
 function icons(){if(window.lucide)lucide.createIcons();}
 function notify(message){clearTimeout(toastTimer);$('toast').textContent=message;$('toast').classList.add('show');toastTimer=setTimeout(()=>$('toast').classList.remove('show'),2700);}
