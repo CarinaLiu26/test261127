@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh-Hant"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#3d2c23"><title>禾煎 HOJIAN｜把日子，煎得剛剛好。</title>
+<html lang="zh-Hant"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#3d2c23"><link rel="manifest" href="manifest.webmanifest"><link rel="icon" type="image/png" sizes="48x48" href="icons/favicon-48.png"><link rel="apple-touch-icon" href="icons/apple-touch-icon.png"><meta name="mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="禾煎"><meta name="apple-mobile-web-app-status-bar-style" content="default"><title>禾煎 HOJIAN｜把日子，煎得剛剛好。</title>
 <script src="https://cdn.tailwindcss.com"></script><script src="https://unpkg.com/lucide@0.468.0/dist/umd/lucide.min.js"></script>
 <style>
 /* Warm minimal design system; layout works even if the styling CDN is unavailable. */
@@ -145,5 +145,7 @@ new IntersectionObserver(e=>{inView=e[0].isIntersecting;setRun(inView&&!document
 document.addEventListener('visibilitychange',()=>setRun(inView&&!document.hidden));
 return true;}
 if(!street3D()){const c=$('street3d');if(c)c.remove();crowd2D();}
+// PWA: offline support + installable app (service workers need http/https).
+if('serviceWorker' in navigator&&location.protocol!=='file:')addEventListener('load',()=>navigator.serviceWorker.register('./sw.js').catch(()=>{}));
 renderMenu('pot');renderStore(0);renderCart();icons();
 </script></body></html>
